@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types';
 
+import css from './filter.module.css';
+
 function Filter({ addFilter }) {
   return (
-    <div>
+    <div className={css.filterWrapper}>
       <label htmlFor="filter">
         Find contact by name
         <input
