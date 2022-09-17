@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 function Filter({ addFilter }) {
   return (
     <div>
@@ -15,3 +17,7 @@ function Filter({ addFilter }) {
 }
 
 export default Filter;
+
+Filter.propTypes = {
+  addFilter: PropTypes.func.isRequired,
+};

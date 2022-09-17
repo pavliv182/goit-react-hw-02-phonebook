@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import id from 'bson-objectid';
+import PropTypes from 'prop-types';
 
 class Phonebook extends Component {
   state = {
@@ -55,3 +56,7 @@ class Phonebook extends Component {
   }
 }
 export default Phonebook;
+
+Phonebook.propTypes = {
+  addContact: PropTypes.func.isRequired,
+};
