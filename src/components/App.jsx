@@ -4,6 +4,7 @@ import Section from './Section';
 import Phonebook from './Phonebook';
 import Contacts from './Contacts';
 import Filter from './Filter';
+import Notification from './Notification';
 
 export class App extends Component {
   state = {
@@ -55,8 +56,14 @@ export class App extends Component {
           <Phonebook addContact={addContact} />
         </Section>
         <Section title="Contacts">
-          <Filter addFilter={addFilter} value={this.state.filter} />
-          <Contacts data={filterContacts()} deleteContact={deleteContact} />
+          {this.state.contacts.length ? (
+            <>
+              <Filter addFilter={addFilter} value={this.state.filter} />
+              <Contacts data={filterContacts()} deleteContact={deleteContact} />
+            </>
+          ) : (
+            <Notification message="Add new contact" />
+          )}
         </Section>
       </>
     );

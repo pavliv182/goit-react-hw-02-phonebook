@@ -27,9 +27,18 @@ class Phonebook extends Component {
       id: id(),
     };
     this.props.addContact(data);
+    this.formReset();
+  };
+
+  formReset = () => {
+    this.setState({
+      name: '',
+      number: '',
+    });
   };
 
   render() {
+    const { name, number } = this.state;
     return (
       <>
         <form onSubmit={this.handleSubmit}>
@@ -37,6 +46,7 @@ class Phonebook extends Component {
             Name
             <input
               id="Name"
+              value={name}
               onChange={this.handleChange}
               type="text"
               name="name"
@@ -49,6 +59,7 @@ class Phonebook extends Component {
             Number
             <input
               id="Number"
+              value={number}
               onChange={this.handleChange}
               type="tel"
               name="number"
