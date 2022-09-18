@@ -48,17 +48,15 @@ export class App extends Component {
   };
 
   render() {
+    const { addContact, addFilter, filterContacts, deleteContact } = this;
     return (
       <>
         <Section title="Phonebook">
-          <Phonebook addContact={this.addContact} />
+          <Phonebook addContact={addContact} />
         </Section>
         <Section title="Contacts">
-          <Filter addFilter={this.addFilter} />
-          <Contacts
-            data={this.filterContacts()}
-            deleteContact={this.deleteContact}
-          />
+          <Filter addFilter={addFilter} value={this.state.filter} />
+          <Contacts data={filterContacts()} deleteContact={deleteContact} />
         </Section>
       </>
     );
